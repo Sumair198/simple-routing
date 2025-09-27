@@ -1,0 +1,20 @@
+/* .error{
+    color: red;
+} */
+.error-input{
+    border: 2px solid red;
+    /* background-color: #ffe5e5; */
+}
+.error-success
+{
+    border: 2px solid green;
+}
+
+.blueClass
+{
+    color: blue;
+}
+.redClass
+{
+    color: red;
+}
