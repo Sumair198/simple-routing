@@ -1,5 +1,7 @@
 import { Component, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
+import { ToastrService } from 'ngx-toastr';
+import {UserService} from './user.service'
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,15 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class AppComponent {
   title = 'simple-routing';
-  constructor(private viewconatiner: ViewContainerRef, private cfr: ComponentFactoryResolver) { }
+  constructor(private viewconatiner: ViewContainerRef, private cfr: ComponentFactoryResolver , private toastr: ToastrService , private users : UserService) { }
+
+  ngOnInit()
+  {
+    this.users.getUsers().subscribe((res : any)=>
+    {
+      console.log(res)
+    })
+  }
 
   async adminList() {
     this.viewconatiner.clear()
@@ -24,8 +34,16 @@ export class AppComponent {
       this.cfr.resolveComponentFactory(UserlistComponent)
     )
   }
+  showSuccess() {
+    this.toastr.success('User Login Successfully!', 'Success' , {closeButton : true} );
+  }
   formValues(evt: any) {
     console.log(evt)
+    if(evt)
+    {
+      this.showSuccess()
+    }
+    
   }
   username: any = 'sumair'
   password: any = 9910

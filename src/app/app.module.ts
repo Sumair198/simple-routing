@@ -11,6 +11,11 @@ import {EmployeeModule} from './employee/employee.module';
 import { UserlistComponent } from './userlist/userlist.component';
 import { AdminlistComponent } from './adminlist/adminlist.component'
 import {FormsModule , ReactiveFormsModule } from '@angular/forms'
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,11 @@ import {FormsModule , ReactiveFormsModule } from '@angular/forms'
     AdminModule,
     EmployeeModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
